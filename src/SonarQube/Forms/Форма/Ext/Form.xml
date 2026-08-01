@@ -5,35 +5,80 @@
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="КоманднаяПанельГруппаПраво" id="109">
+		<UsualGroup name="КоманднаяПанель" id="117">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Командная панель группа право</v8:content>
+					<v8:content>Командная панель</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Командная панель группа право</v8:content>
+					<v8:content>Командная панель</v8:content>
 				</v8:item>
 			</ToolTip>
-			<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="КоманднаяПанельГруппаПравоРасширеннаяПодсказка" id="110"/>
+			<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="118"/>
 			<ChildItems>
-				<Button name="Настройки" id="111">
-					<Type>UsualButton</Type>
-					<Representation>Picture</Representation>
-					<CommandName>Form.Command.Настройки</CommandName>
-					<Picture>
-						<xr:Abs>Picture.png</xr:Abs>
-						<xr:LoadTransparent>false</xr:LoadTransparent>
-					</Picture>
-					<ExtendedTooltip name="НастройкиРасширеннаяПодсказка" id="112"/>
-				</Button>
+				<UsualGroup name="КоманднаяПанельГруппаЛево" id="113">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Командная панель группа лево</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Командная панель группа лево</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="КоманднаяПанельГруппаЛевоРасширеннаяПодсказка" id="114"/>
+					<ChildItems>
+						<Button name="ЗапуститьАнализ" id="115">
+							<Type>UsualButton</Type>
+							<DefaultButton>true</DefaultButton>
+							<CommandName>Form.Command.ЗапуститьАнализ</CommandName>
+							<ExtendedTooltip name="ЗапуститьАнализРасширеннаяПодсказка" id="116"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="КоманднаяПанельГруппаПраво" id="109">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Командная панель группа право</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Командная панель группа право</v8:content>
+						</v8:item>
+					</ToolTip>
+					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="КоманднаяПанельГруппаПравоРасширеннаяПодсказка" id="110"/>
+					<ChildItems>
+						<Button name="Настройки" id="111">
+							<Type>UsualButton</Type>
+							<Representation>Picture</Representation>
+							<CommandName>Form.Command.Настройки</CommandName>
+							<Picture>
+								<xr:Abs>Picture.png</xr:Abs>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<ExtendedTooltip name="НастройкиРасширеннаяПодсказка" id="112"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
 		<InputField name="ПутьКФайлу" id="1">
@@ -76,7 +121,9 @@
 							<DataPath>Ошибки</DataPath>
 							<RowFilter xsi:nil="true"/>
 							<ContextMenu name="ОшибкиКонтекстноеМеню" id="83"/>
-							<AutoCommandBar name="ОшибкиКоманднаяПанель" id="84"/>
+							<AutoCommandBar name="ОшибкиКоманднаяПанель" id="84">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
 							<ExtendedTooltip name="ОшибкиРасширеннаяПодсказка" id="85"/>
 							<SearchStringAddition name="ОшибкиСтрокаПоиска" id="86">
 								<AdditionSource>
@@ -87,6 +134,7 @@
 								<ExtendedTooltip name="ОшибкиСтрокаПоискаРасширеннаяПодсказка" id="88"/>
 							</SearchStringAddition>
 							<ViewStatusAddition name="ОшибкиСостояниеПросмотра" id="89">
+								<Enabled>false</Enabled>
 								<AdditionSource>
 									<Item>Ошибки</Item>
 									<Type>ViewStatusRepresentation</Type>
@@ -157,11 +205,11 @@
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="КодФайлаРасширеннаяПодсказка" id="72"/>
 					<ChildItems>
-						<TextDocumentField name="Код" id="79">
+						<HTMLDocumentField name="Код" id="79">
 							<DataPath>Код</DataPath>
 							<ContextMenu name="КодКонтекстноеМеню" id="80"/>
 							<ExtendedTooltip name="КодРасширеннаяПодсказка" id="81"/>
-						</TextDocumentField>
+						</HTMLDocumentField>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
@@ -357,6 +405,20 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Настройки</Action>
+		</Command>
+		<Command name="ЗапуститьАнализ" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Запустить анализ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Запустить анализ</v8:content>
+				</v8:item>
+			</ToolTip>
 		</Command>
 	</Commands>
 </Form>
