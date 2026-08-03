@@ -419,6 +419,7 @@
 					<v8:content>Запустить анализ</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Action>ЗапуститьАнализ</Action>
 		</Command>
 	</Commands>
 </Form>
